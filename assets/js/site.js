@@ -142,6 +142,18 @@
         var parado = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         maus[0].focus({ preventScroll: true });
         maus[0].scrollIntoView({ block: "center", behavior: parado ? "auto" : "smooth" });
+
+        // so o primeiro abana, e so depois de a pagina chegar la
+        if (!parado) {
+          var primeiro = maus[0];
+          setTimeout(function () {
+            primeiro.classList.add("abana");
+            primeiro.addEventListener("animationend", function () {
+              primeiro.classList.remove("abana");
+            }, { once: true });
+          }, 350);
+        }
+
         clearTimeout(form.relogio);
         form.relogio = setTimeout(function () { aviso.className = "form-aviso"; }, ESPERA);
         return;

@@ -455,7 +455,8 @@ p { margin: 0 0 1em; }
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.5rem 2rem;
+  align-items: center;
+  gap: 1.5rem 2rem;
   margin-top: 3rem;
   padding-top: 1.5rem;
   padding-bottom: 2rem;
@@ -472,6 +473,27 @@ p { margin: 0 0 1em; }
   padding-bottom: 1px;
 }
 .pe-cred a:hover { border-color: var(--ciano); }
+
+.pe-base-txt { display: grid; gap: 0.35rem; }
+
+.selo-lr {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--linha);
+  border-radius: var(--r);
+  background: var(--papel-2);
+  color: var(--tinta);
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+.selo-lr svg { width: 24px; height: 24px; flex: none; color: var(--ciano-esc); }
+.selo-lr:hover { border-color: var(--ciano-esc); background: var(--papel); }
 
 /* ---------- menu aberto no telemovel ---------- */
 

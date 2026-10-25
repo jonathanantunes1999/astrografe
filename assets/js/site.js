@@ -62,9 +62,12 @@
       return campo.closest(".campo, .campo-check");
     };
 
+    var ESPERA = 5000;
+
     var limpar = function (campo) {
       var caixa = bloco(campo);
       if (!caixa) return;
+      clearTimeout(caixa.relogio);
       caixa.classList.remove("mau");
       campo.removeAttribute("aria-invalid");
       campo.removeAttribute("aria-describedby");
@@ -98,6 +101,13 @@
       caixa.classList.add("mau");
       campo.setAttribute("aria-invalid", "true");
       campo.setAttribute("aria-describedby", marca.id);
+
+      // a marca apaga-se sozinha, para o formulario nao ficar vermelho para sempre
+      caixa.relogio = setTimeout(function () {
+        marca.classList.add("sai");
+        caixa.classList.remove("mau");
+        setTimeout(function () { limpar(campo); }, 400);
+      }, ESPERA);
     };
 
     var porPreencher = function () {
@@ -132,6 +142,8 @@
         var parado = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         maus[0].focus({ preventScroll: true });
         maus[0].scrollIntoView({ block: "center", behavior: parado ? "auto" : "smooth" });
+        clearTimeout(form.relogio);
+        form.relogio = setTimeout(function () { aviso.className = "form-aviso"; }, ESPERA);
         return;
       }
 

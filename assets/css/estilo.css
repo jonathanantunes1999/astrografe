@@ -282,8 +282,6 @@ p { margin: 0 0 1em; }
 .ph-4x3 { aspect-ratio: 4 / 3; }
 .ph-3x2 { aspect-ratio: 3 / 2; }
 .ph-3x4 { aspect-ratio: 3 / 4; }
-.ph-emblema { aspect-ratio: 1; width: 72px; margin: 0 auto 0.9rem; border-radius: 50%; }
-.ph-emblema::before { display: none; }
 
 /* ---------- hero ---------- */
 
@@ -365,7 +363,14 @@ p { margin: 0 0 1em; }
   gap: 2rem;
   text-align: center;
 }
+.clubes-lista img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 0.9rem;
+}
 .clubes-lista span {
+  display: block;
   font-family: var(--display);
   font-weight: 600;
   font-size: 0.95rem;

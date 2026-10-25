@@ -274,25 +274,6 @@ p { margin: 0 0 1em; }
   font-weight: 600;
   font-size: 0.93rem;
 }
-.submenu-pe {
-  padding: 0.8rem;
-  border-top: 1px solid var(--linha);
-  background: var(--papel-2);
-}
-.submenu-pe .submenu-cta {
-  display: block;
-  padding: 0.65em 1em;
-  border-bottom: 0;
-  background: var(--tinta);
-  color: var(--papel);
-  border-radius: var(--r);
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-align: center;
-}
-.submenu-pe .submenu-cta:hover { background: var(--ciano-esc); color: var(--papel); }
-
 .topo-cta { display: none; }
 
 .burger {
@@ -697,7 +678,6 @@ p { margin: 0 0 1em; }
   font-size: 0.88rem;
   color: var(--tinta-2);
 }
-.nav-aberto .submenu-pe { display: none; }
 
 /* ---------- paginas interiores ---------- */
 

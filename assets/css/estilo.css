@@ -275,27 +275,21 @@ p { margin: 0 0 1em; }
   font-size: 0.93rem;
 }
 .submenu-pe {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.8rem 1.1rem;
+  padding: 0.8rem;
   border-top: 1px solid var(--linha);
   background: var(--papel-2);
 }
-.submenu-pe a {
-  padding: 0;
-  border-bottom: 0;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-.submenu-pe a:hover { background: none; color: var(--ciano-esc); }
 .submenu-pe .submenu-cta {
-  padding: 0.5em 0.9em;
+  display: block;
+  padding: 0.65em 1em;
+  border-bottom: 0;
   background: var(--tinta);
   color: var(--papel);
   border-radius: var(--r);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
 }
 .submenu-pe .submenu-cta:hover { background: var(--ciano-esc); color: var(--papel); }
 

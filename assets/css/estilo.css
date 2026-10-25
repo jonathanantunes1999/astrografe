@@ -142,7 +142,6 @@ p { margin: 0 0 1em; }
   z-index: 40;
   background: rgba(250, 248, 244, 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--linha);
 }
 
 .topo-in {
@@ -569,7 +568,7 @@ p { margin: 0 0 1em; }
 .nav-aberto .nav {
   display: grid;
   position: absolute;
-  top: 100%;
+  top: calc(100% - 4px);
   left: 0;
   right: 0;
   gap: 0;

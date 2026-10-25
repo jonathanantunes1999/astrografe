@@ -143,14 +143,17 @@
         maus[0].focus({ preventScroll: true });
         maus[0].scrollIntoView({ block: "center", behavior: parado ? "auto" : "smooth" });
 
-        // so o primeiro abana, e so depois de a pagina chegar la
+        // abanam todos em cascata, depois de a pagina chegar ao primeiro
         if (!parado) {
-          var primeiro = maus[0];
           setTimeout(function () {
-            primeiro.classList.add("abana");
-            primeiro.addEventListener("animationend", function () {
-              primeiro.classList.remove("abana");
-            }, { once: true });
+            maus.forEach(function (campo, i) {
+              campo.style.animationDelay = i * 70 + "ms";
+              campo.classList.add("abana");
+              campo.addEventListener("animationend", function () {
+                campo.classList.remove("abana");
+                campo.style.animationDelay = "";
+              }, { once: true });
+            });
           }, 350);
         }
 

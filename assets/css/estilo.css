@@ -239,7 +239,7 @@ p { margin: 0 0 1em; }
   position: absolute;
   top: 100%;
   left: -1.2rem;
-  width: 380px;
+  width: 260px;
   max-width: calc(100vw - 2 * var(--gut));
   padding-top: 12px;
   z-index: 5;
@@ -262,27 +262,18 @@ p { margin: 0 0 1em; }
 
 .submenu-caixa a {
   display: block;
-  padding: 0.85rem 1.1rem;
+  padding: 0.7rem 1.1rem;
   border: 0;
   border-bottom: 1px solid var(--linha);
 }
 .submenu-caixa a:last-child { border-bottom: 0; }
 .submenu-caixa a:hover { background: var(--papel-2); }
 
-.submenu-caixa strong {
-  display: block;
+.submenu-caixa a {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 600;
+  font-size: 0.93rem;
 }
-.submenu-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--linha);
-}
-.submenu-cols a { background: var(--papel); border-bottom: 0; }
-
 .submenu-pe {
   display: flex;
   align-items: center;
@@ -307,14 +298,6 @@ p { margin: 0 0 1em; }
   border-radius: var(--r);
 }
 .submenu-pe .submenu-cta:hover { background: var(--ciano-esc); color: var(--papel); }
-
-.submenu-caixa a span {
-  display: block;
-  margin-top: 0.15rem;
-  font-size: 0.82rem;
-  line-height: 1.45;
-  color: var(--tinta-2);
-}
 
 .topo-cta { display: none; }
 
@@ -715,13 +698,11 @@ p { margin: 0 0 1em; }
 }
 .nav-aberto .submenu-faixa { display: none; }
 .nav-aberto .submenu-caixa a { padding: 0.55em 0 0.55em 0.9rem; border-bottom: 0; }
-.nav-aberto .submenu-caixa strong {
+.nav-aberto .submenu-caixa a {
   font-weight: 500;
   font-size: 0.88rem;
   color: var(--tinta-2);
 }
-.nav-aberto .submenu-caixa a span { display: none; }
-.nav-aberto .submenu-cols { grid-template-columns: 1fr; gap: 0; background: none; }
 .nav-aberto .submenu-pe { display: none; }
 
 /* ---------- paginas interiores ---------- */
@@ -950,8 +931,6 @@ p { margin: 0 0 1em; }
     visibility: visible;
     transform: none;
   }
-
-  .submenu-largo { width: 540px; }
 
   .submenu-faixa i { transform: scaleX(0); transition: transform 0.3s; }
   .tem-menu:hover .submenu-faixa i,

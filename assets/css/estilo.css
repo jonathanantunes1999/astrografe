@@ -470,8 +470,8 @@ p { margin: 0 0 1em; }
   justify-content: space-between;
   align-items: center;
   gap: 0.4rem 2rem;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
   padding-bottom: 2rem;
   border-top: 1px solid var(--linha);
   color: var(--tinta-2);
@@ -489,7 +489,7 @@ p { margin: 0 0 1em; }
 
 .pe-col .selo-lr {
   display: inline-flex;
-  margin-top: 1.6rem;
+  margin-top: 1.3rem;
   align-items: center;
   gap: 0.7rem;
   padding: 0.7rem 1rem;

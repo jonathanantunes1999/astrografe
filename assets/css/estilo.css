@@ -164,8 +164,8 @@ p { margin: 0 0 1em; }
 .marca-selo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   flex: none;
 }
 .marca-selo i:nth-child(1) { background: var(--ciano); }
@@ -173,12 +173,25 @@ p { margin: 0 0 1em; }
 .marca-selo i:nth-child(3) { background: var(--amarelo); }
 .marca-selo i:nth-child(4) { background: var(--tinta); }
 
+.marca-txt { display: grid; gap: 2px; }
+
 .marca-nome {
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.3rem;
+  line-height: 1;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+}
+
+.marca-sub {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.6rem;
+  line-height: 1;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
 }
 
 .nav { display: none; gap: 1.4rem; }
@@ -447,7 +460,7 @@ p { margin: 0 0 1em; }
 .pe-col a:hover { color: var(--tinta); }
 .pe-col h4 { margin-bottom: 0.9rem; }
 
-.pe-marca .marca-nome { display: block; margin-bottom: 1rem; }
+.pe-marca .marca-nome { display: block; margin-bottom: 1rem; font-size: 1.15rem; }
 .pe-marca p { color: var(--tinta-2); }
 .pe-marca a { display: inline; }
 

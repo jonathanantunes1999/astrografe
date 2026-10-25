@@ -659,6 +659,7 @@ p { margin: 0 0 1em; }
 
 .campo-check {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.7rem;
   margin: 0 0 1.8rem;
@@ -674,6 +675,24 @@ p { margin: 0 0 1em; }
 }
 .campo-check label { line-height: 1.5; }
 .campo-check a { color: var(--ciano-esc); }
+
+.campo.mau input,
+.campo.mau select,
+.campo.mau textarea {
+  border-color: var(--magenta);
+  background: #fdf6f8;
+}
+.campo-check.mau input { outline: 2px solid var(--magenta); outline-offset: 2px; }
+
+.erro {
+  display: block;
+  width: 100%;
+  margin-top: 0.4rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #8a1c3b;
+}
 
 .form-pe {
   display: flex;

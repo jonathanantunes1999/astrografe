@@ -58,11 +58,80 @@
       });
     }
 
+    var bloco = function (campo) {
+      return campo.closest(".campo, .campo-check");
+    };
+
+    var limpar = function (campo) {
+      var caixa = bloco(campo);
+      if (!caixa) return;
+      caixa.classList.remove("mau");
+      campo.removeAttribute("aria-invalid");
+      campo.removeAttribute("aria-describedby");
+      var marca = caixa.querySelector(".erro");
+      if (marca) marca.remove();
+    };
+
+    var razao = function (campo) {
+      if (campo.validity.valueMissing) {
+        if (campo.type === "checkbox") return "É preciso autorizar para podermos responder.";
+        if (campo.tagName === "SELECT") return "Escolha uma opção da lista.";
+        return "Preencha este campo.";
+      }
+      if (campo.validity.typeMismatch && campo.type === "email") {
+        return "Este email não parece estar certo.";
+      }
+      if (campo.validity.typeMismatch && campo.type === "url") {
+        return "O link tem de começar por http:// ou https://";
+      }
+      return "Verifique este campo.";
+    };
+
+    var assinalar = function (campo) {
+      var caixa = bloco(campo);
+      if (!caixa || caixa.querySelector(".erro")) return;
+      var marca = document.createElement("span");
+      marca.className = "erro";
+      marca.id = "erro-" + campo.id;
+      marca.textContent = razao(campo);
+      caixa.appendChild(marca);
+      caixa.classList.add("mau");
+      campo.setAttribute("aria-invalid", "true");
+      campo.setAttribute("aria-describedby", marca.id);
+    };
+
+    var porPreencher = function () {
+      var maus = [];
+      Array.prototype.forEach.call(form.elements, function (campo) {
+        if (!campo.name || campo.type === "hidden" || campo.classList.contains("mel")) return;
+        limpar(campo);
+        if (!campo.checkValidity()) {
+          assinalar(campo);
+          maus.push(campo);
+        }
+      });
+      return maus;
+    };
+
+    // ao corrigir um campo, a marca de erro sai logo
+    ["input", "change"].forEach(function (evento) {
+      form.addEventListener(evento, function (e) {
+        if (e.target.willValidate && e.target.checkValidity()) limpar(e.target);
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
+      var maus = porPreencher();
+      if (maus.length) {
+        aviso.className = "form-aviso erro";
+        aviso.textContent = maus.length === 1
+          ? "Falta preencher um campo. Está assinalado acima."
+          : "Faltam " + maus.length + " campos. Estão assinalados acima.";
+        var parado = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        maus[0].focus({ preventScroll: true });
+        maus[0].scrollIntoView({ block: "center", behavior: parado ? "auto" : "smooth" });
         return;
       }
 

@@ -25,12 +25,20 @@
   if (subir) {
     var arco = subir.querySelector(".prog");
     var volta = 2 * Math.PI * 20;
+    var fim = document.querySelector(".pe-base");
 
     var marcar = function () {
       var percurso = document.documentElement.scrollHeight - window.innerHeight;
       var lido = percurso > 0 ? window.scrollY / percurso : 0;
       arco.style.strokeDashoffset = volta * (1 - Math.min(lido, 1));
       subir.classList.toggle("ver", window.scrollY > 600);
+
+      // ao chegar ao fim do rodape o botao encosta, em vez de tapar o texto
+      if (fim) {
+        var folga = window.innerWidth >= 960 ? 28 : 16;
+        var invade = window.innerHeight - fim.getBoundingClientRect().top + 12;
+        subir.style.bottom = Math.max(folga, invade) + "px";
+      }
     };
 
     window.addEventListener("scroll", marcar, { passive: true });

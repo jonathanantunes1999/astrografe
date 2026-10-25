@@ -369,6 +369,15 @@ p { margin: 0 0 1em; }
   object-fit: contain;
   margin: 0 auto 0.9rem;
 }
+/* o escudo do Sporting acaba em branco e perde-se no fundo claro */
+.clubes-lista .contornado {
+  filter:
+    drop-shadow(1px 0 0 #6f6a63)
+    drop-shadow(-1px 0 0 #6f6a63)
+    drop-shadow(0 1px 0 #6f6a63)
+    drop-shadow(0 -1px 0 #6f6a63);
+}
+
 .clubes-lista span {
   display: block;
   font-family: var(--display);

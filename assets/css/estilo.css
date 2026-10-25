@@ -629,7 +629,7 @@ p { margin: 0 0 1em; }
   background: var(--papel);
   border: 1px solid var(--linha);
   border-radius: var(--r);
-  transition: border-color 0.15s;
+  transition: border-color 0.35s, background 0.35s;
 }
 .form textarea { resize: vertical; }
 
@@ -692,7 +692,9 @@ p { margin: 0 0 1em; }
   font-weight: 600;
   font-size: 0.8rem;
   color: #8a1c3b;
+  transition: opacity 0.4s;
 }
+.erro.sai { opacity: 0; }
 
 .form-pe {
   display: flex;
@@ -707,6 +709,7 @@ p { margin: 0 0 1em; }
 .form-aviso {
   display: none;
   margin: 1.4rem 0 0;
+  transition: opacity 0.4s;
   padding: 0.9rem 1rem;
   border-radius: var(--r);
   font-size: 0.95rem;

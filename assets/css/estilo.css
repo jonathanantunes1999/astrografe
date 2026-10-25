@@ -462,7 +462,7 @@ p { margin: 0 0 1em; }
 
 .pe-marca .marca-nome { display: block; margin-bottom: 1rem; font-size: 1.15rem; }
 .pe-marca p { color: var(--tinta-2); }
-.pe-marca a { display: inline; }
+.pe-marca p a { display: inline; }
 
 .pe-base {
   display: flex;
@@ -487,7 +487,7 @@ p { margin: 0 0 1em; }
 }
 .pe-cred a:hover { border-color: var(--ciano); }
 
-.selo-lr {
+.pe-col .selo-lr {
   display: inline-flex;
   margin-top: 1.6rem;
   align-items: center;
@@ -504,8 +504,8 @@ p { margin: 0 0 1em; }
   line-height: 1.25;
   letter-spacing: 0.01em;
 }
-.selo-lr svg { width: 24px; height: 24px; flex: none; color: var(--ciano-esc); }
-.selo-lr:hover { border-color: var(--ciano-esc); background: var(--papel); }
+.pe-col .selo-lr svg { width: 24px; height: 24px; flex: none; color: var(--ciano-esc); }
+.pe-col .selo-lr:hover { border-color: var(--ciano-esc); background: var(--papel); }
 
 /* ---------- voltar ao topo ---------- */
 

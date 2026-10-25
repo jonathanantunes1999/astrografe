@@ -43,6 +43,58 @@
     });
   }
 
+  var form = document.getElementById("form-orcamento");
+
+  if (form) {
+    var aviso = document.getElementById("form-aviso");
+    var botao = form.querySelector('button[type="submit"]');
+    var familia = form.querySelector("#familia");
+
+    // a familia pode vir escolhida da pagina de produtos: orcamento/?familia=calendarios
+    var pedida = new URLSearchParams(window.location.search).get("familia");
+    if (familia && pedida) {
+      Array.prototype.forEach.call(familia.options, function (opcao) {
+        if (opcao.value === pedida) familia.value = pedida;
+      });
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      botao.disabled = true;
+      botao.textContent = "A enviar…";
+      aviso.className = "form-aviso";
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (resposta) { return resposta.json(); })
+        .then(function (dados) {
+          if (!dados.success) throw new Error(dados.message);
+          form.reset();
+          aviso.className = "form-aviso ok";
+          aviso.textContent = "Pedido enviado. Respondemos em 24 horas úteis.";
+        })
+        .catch(function () {
+          aviso.className = "form-aviso erro";
+          aviso.innerHTML =
+            'Não foi possível enviar o pedido. Tente outra vez ou ligue para ' +
+            '<a href="tel:+351219822088">219 822 088</a>.';
+        })
+        .then(function () {
+          botao.disabled = false;
+          botao.textContent = "Enviar pedido";
+        });
+    });
+  }
+
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();

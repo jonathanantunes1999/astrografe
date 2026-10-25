@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Pedir orçamento — Astrografe</title>
+<meta name="description" content="Peça um orçamento à Astrografe. Diga-nos o produto, a quantidade e o formato e respondemos em 24 horas úteis. Offset e digital em Loures desde 1980.">
+<link rel="canonical" href="https://astrografe.pt/orcamento/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pedir orçamento — Astrografe">
+<meta property="og:description" content="Diga-nos o produto, a quantidade e o formato. Respondemos em 24 horas úteis.">
+<meta property="og:url" content="https://astrografe.pt/orcamento/">
+<meta property="og:locale" content="pt_PT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/estilo.css">
+</head>
+<body>
+
+<a class="salta" href="#conteudo">Saltar para o conteúdo</a>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="../">
+      <span class="marca-selo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="marca-txt">
+        <span class="marca-nome">Astrografe</span>
+        <span class="marca-sub">Artes Gráficas, Lda.</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="../produtos/">Produtos</a>
+      <a href="../calendarios/">Calendários</a>
+      <a href="../servicos/">Serviços</a>
+      <a href="../licenciamentos/">Licenciamentos</a>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contactos/">Contactos</a>
+    </nav>
+
+    <a class="btn btn-tinta topo-cta" href="./">Pedir orçamento</a>
+
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- barra de controlo de cor: fecha o cabecalho e acompanha o scroll -->
+  <div class="barra-cor" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+</header>
+
+<main id="conteudo">
+
+<section class="pag-topo">
+  <div class="wrap">
+    <p class="sobre-titulo">Orçamentos</p>
+    <h1>Diga-nos o que precisa de imprimir.</h1>
+    <p class="lead">Quanto mais concreto for o pedido, mais rápida é a resposta. Se não souber alguma coisa, deixe em branco — tratamos disso ao telefone.</p>
+  </div>
+</section>
+
+<section class="orc">
+  <div class="wrap orc-in">
+
+    <form class="form" id="form-orcamento" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="ACCESS_KEY_AQUI">
+      <input type="hidden" name="subject" value="Pedido de orçamento pelo site">
+      <input type="hidden" name="from_name" value="astrografe.pt">
+      <input type="checkbox" name="botcheck" class="mel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend>Quem está a pedir</legend>
+        <div class="campos">
+          <p class="campo campo-2">
+            <label for="nome">Nome <abbr title="obrigatório">*</abbr></label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required>
+          </p>
+          <p class="campo campo-2">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" autocomplete="organization">
+          </p>
+          <p class="campo campo-2">
+            <label for="email">Email <abbr title="obrigatório">*</abbr></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </p>
+          <p class="campo campo-2">
+            <label for="telefone">Telefone <abbr title="obrigatório">*</abbr></label>
+            <input type="tel" id="telefone" name="telefone" autocomplete="tel" required>
+          </p>
+          <p class="campo campo-2">
+            <label for="nif">NIF</label>
+            <input type="text" id="nif" name="nif" inputmode="numeric" maxlength="9">
+          </p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>O que precisa</legend>
+        <div class="campos">
+          <p class="campo campo-2">
+            <label for="familia">Família de produto <abbr title="obrigatório">*</abbr></label>
+            <select id="familia" name="familia" required>
+              <option value="">Escolher…</option>
+              <option value="calendarios">Calendários</option>
+              <option value="cartas-e-jogos">Cartas e jogos</option>
+              <option value="promocional">Promocional</option>
+              <option value="papelaria-e-editorial">Papelaria e editorial</option>
+              <option value="embalagem-e-plv">Embalagem e PLV</option>
+              <option value="grande-formato-e-etiquetas">Grande formato e etiquetas</option>
+              <option value="outro">Outro</option>
+            </select>
+          </p>
+          <p class="campo campo-2">
+            <label for="produto">Produto</label>
+            <input type="text" id="produto" name="produto" placeholder="Calendário de parede, brochura, caixa…">
+          </p>
+          <p class="campo campo-2">
+            <label for="quantidade">Quantidade <abbr title="obrigatório">*</abbr></label>
+            <input type="text" id="quantidade" name="quantidade" placeholder="1.000 unidades" required>
+          </p>
+          <p class="campo campo-2">
+            <label for="formato">Formato ou medidas</label>
+            <input type="text" id="formato" name="formato" placeholder="A4, 21×29,7 cm, 52×72 cm…">
+          </p>
+          <p class="campo campo-2">
+            <label for="prazo">Prazo pretendido</label>
+            <input type="text" id="prazo" name="prazo" placeholder="Até 15 de dezembro">
+          </p>
+          <p class="campo campo-2">
+            <label for="ficheiros">Link para os ficheiros</label>
+            <input type="url" id="ficheiros" name="ficheiros" placeholder="https://">
+          </p>
+          <p class="campo">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Papel, gramagem, acabamentos, cores, se é reimpressão de um trabalho anterior…"></textarea>
+          </p>
+        </div>
+      </fieldset>
+
+      <p class="campo-check">
+        <input type="checkbox" id="privacidade" name="privacidade" value="Aceite" required>
+        <label for="privacidade">Autorizo o tratamento dos meus dados para resposta a este pedido, nos termos da <a href="../privacidade/">política de privacidade</a>. <abbr title="obrigatório">*</abbr></label>
+      </p>
+
+      <div class="form-pe">
+        <button class="btn btn-tinta" type="submit">Enviar pedido</button>
+        <span class="form-nota">Resposta em 24 horas úteis.</span>
+      </div>
+
+      <p class="form-aviso" id="form-aviso" role="status" aria-live="polite"></p>
+    </form>
+
+    <aside class="orc-lado">
+      <div class="cartao">
+        <h2>Prefere falar?</h2>
+        <p>Para trabalhos fora do comum, uma chamada resolve mais depressa do que um formulário.</p>
+        <p class="cartao-destaque">
+          <a href="tel:+351219822088">219 822 088</a><br>
+          <a href="mailto:geral@astrografe.pt">geral@astrografe.pt</a>
+        </p>
+        <p class="cartao-nota">2.ª a 6.ª, 9h00–18h00<br>Rua Duarte Tarré, 45 — Loures</p>
+      </div>
+
+      <div class="cartao">
+        <h2>O que acelera o orçamento</h2>
+        <ul class="lista-seca">
+          <li>A quantidade exata, ou duas quantidades para comparar</li>
+          <li>O formato final, aberto e fechado</li>
+          <li>O papel e a gramagem, se já souber</li>
+          <li>Os acabamentos: plastificação, relevo, corte e vinco</li>
+          <li>A data em que precisa do trabalho entregue</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="pe">
+  <div class="wrap pe-in">
+    <div class="pe-col pe-marca">
+      <span class="marca-nome">Astrografe</span>
+      <p>Astrografe — Artes Gráficas, Lda.<br>Rua Duarte Tarré, 45<br>2670-505 Loures</p>
+      <p>
+        <a href="tel:+351219822088">219 822 088</a><br>
+        <a href="mailto:geral@astrografe.pt">geral@astrografe.pt</a>
+      </p>
+
+      <!-- substituir pelo selo oficial descarregado em livroreclamacoes.pt -->
+      <a class="selo-lr" href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M4 4.5h6.5a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4z"/>
+          <path d="M20.5 4.5H14a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6.5z"/>
+        </svg>
+        <span>Livro de Reclamações</span>
+      </a>
+    </div>
+
+    <div class="pe-col">
+      <h4>Produtos</h4>
+      <a href="../calendarios/">Calendários</a>
+      <a href="../produtos/">Cartas e jogos</a>
+      <a href="../produtos/">Promocional</a>
+      <a href="../produtos/">Papelaria e editorial</a>
+      <a href="../produtos/">Embalagem e PLV</a>
+      <a href="../produtos/">Grande formato</a>
+    </div>
+
+    <div class="pe-col">
+      <h4>Serviços</h4>
+      <a href="../servicos/#pre-impressao">Pré-impressão</a>
+      <a href="../servicos/#offset">Offset</a>
+      <a href="../servicos/#impressao-digital">Impressão digital</a>
+      <a href="../servicos/#acabamentos">Acabamentos</a>
+      <a href="../licenciamentos/">Licenciamentos</a>
+    </div>
+
+    <div class="pe-col">
+      <h4>Empresa</h4>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contactos/">Contactos</a>
+      <a href="./">Orçamentos</a>
+      <a href="../privacidade/">Política de privacidade</a>
+      <a href="../cookies/">Política de cookies</a>
+    </div>
+  </div>
+
+  <div class="wrap pe-base">
+    <p>&copy; <span id="ano">2026</span> Astrografe — Artes Gráficas, Lda.</p>
+    <p>Horário: 2.ª a 6.ª, 9h00–18h00</p>
+    <p class="pe-cred">made by <a href="https://blankstudios.pt/" target="_blank" rel="noopener">Blank Studio</a></p>
+  </div>
+</footer>
+
+<!-- marca de registo: em repouso as chapas estao fora de registo, ao passar o rato alinham -->
+<button class="subir" id="subir" aria-label="Voltar ao topo" title="Voltar ao topo">
+  <svg viewBox="0 0 44 44" aria-hidden="true">
+    <circle class="trilho" cx="22" cy="22" r="20"/>
+    <circle class="prog" cx="22" cy="22" r="20"/>
+    <g class="reg">
+      <path class="c" d="M22 7v9"/>
+      <path class="m" d="M22 28v9"/>
+      <path class="y" d="M7 22h9"/>
+      <path class="k" d="M28 22h9"/>
+      <circle class="alvo" cx="22" cy="22" r="6.5"/>
+    </g>
+  </svg>
+</button>
+
+<script src="../assets/js/site.js"></script>
+
+</body>
+</html>

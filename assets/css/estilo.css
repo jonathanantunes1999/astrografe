@@ -465,6 +465,14 @@ p { margin: 0 0 1em; }
 }
 .pe-base p { margin: 0; }
 
+.pe-cred a {
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--linha);
+  padding-bottom: 1px;
+}
+.pe-cred a:hover { border-color: var(--ciano); }
+
 /* ---------- menu aberto no telemovel ---------- */
 
 .nav-aberto .nav {

@@ -791,7 +791,7 @@ p { margin: 0 0 1em; }
 .orc { padding: 2.8rem 0 4.5rem; }
 .orc-in { display: grid; gap: 3rem; align-items: start; }
 
-/* ---------- pagina de servicos ---------- */
+/* ---------- blocos alternados e barra de atalhos ---------- */
 
 /* o texto de abertura precisa de ar antes da barra */
 .pag-topo + .atalhos { margin-top: 4rem; }
@@ -838,17 +838,17 @@ p { margin: 0 0 1em; }
 /* a secçao em que se vai a ler acende; a cor fica para os traços das seccoes */
 .atalhos a.ativo { color: var(--tinta); border-bottom-color: var(--tinta); }
 
-.serv {
+.bloco {
   padding: 4rem 0;
   /* passa por baixo do cabecalho e da barra de atalhos */
   scroll-margin-top: calc(var(--topo-alt) + 56px);
 }
-.serv-par { background: var(--papel-2); }
+.bloco-par { background: var(--papel-2); }
 
-.serv-in { display: grid; gap: 2.5rem; align-items: center; }
+.bloco-in { display: grid; gap: 2.5rem; align-items: center; }
 
 /* cada servico leva a cor da chapa que lhe corresponde */
-.serv-n {
+.bloco-n {
   display: inline-block;
   margin: 0 0 1.3rem;
   padding-top: 0.9rem;
@@ -860,14 +860,14 @@ p { margin: 0 0 1em; }
   text-transform: uppercase;
   color: var(--tinta-2);
 }
-#pre-impressao .serv-n { border-top-color: var(--ciano); }
-#offset .serv-n { border-top-color: var(--magenta); }
-#impressao-digital .serv-n { border-top-color: var(--amarelo); }
+#pre-impressao .bloco-n { border-top-color: var(--ciano); }
+#offset .bloco-n { border-top-color: var(--magenta); }
+#impressao-digital .bloco-n { border-top-color: var(--amarelo); }
 
-.serv-txt h2 { margin-bottom: 0.9rem; }
+.bloco-txt h2 { margin-bottom: 0.9rem; }
 
-.serv-img { margin: 0; }
-.serv-img figcaption {
+.bloco-img { margin: 0; }
+.bloco-img figcaption {
   font-size: 0.82rem;
   color: var(--tinta-2);
   margin-top: 0.6rem;
@@ -1075,6 +1075,14 @@ p { margin: 0 0 1em; }
 .lista-seca li { margin-bottom: 0.45rem; }
 .lista-seca li:last-child { margin-bottom: 0; }
 
+.bloco-pe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.6rem;
+  margin: 2rem 0 0;
+}
+
 /* ---------- tablet ---------- */
 
 @media (min-width: 620px) {
@@ -1147,10 +1155,10 @@ p { margin: 0 0 1em; }
 
   .orc-in { grid-template-columns: 1.7fr 1fr; gap: 4rem; }
 
-  .serv { padding: 5rem 0; }
-  .serv-in { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .bloco { padding: 5rem 0; }
+  .bloco-in { grid-template-columns: 1fr 1fr; gap: 4rem; }
   /* nas seccoes pares a fotografia troca de lado */
-  .serv-par .serv-txt { order: 2; }
+  .bloco-par .bloco-txt { order: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {

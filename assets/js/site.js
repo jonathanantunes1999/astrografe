@@ -66,14 +66,14 @@
       });
     }
 
-    var bloco = function (campo) {
+    var caixaDe = function (campo) {
       return campo.closest(".campo, .campo-check");
     };
 
     var ESPERA = 5000;
 
     var limpar = function (campo) {
-      var caixa = bloco(campo);
+      var caixa = caixaDe(campo);
       if (!caixa) return;
       clearTimeout(caixa.relogio);
       caixa.classList.remove("mau");
@@ -99,7 +99,7 @@
     };
 
     var assinalar = function (campo) {
-      var caixa = bloco(campo);
+      var caixa = caixaDe(campo);
       if (!caixa || caixa.querySelector(".erro")) return;
       var marca = document.createElement("span");
       marca.className = "erro";
@@ -217,7 +217,7 @@
   }
 
   var atalhos = document.querySelectorAll(".atalhos a");
-  var seccoes = document.querySelectorAll(".serv");
+  var seccoes = document.querySelectorAll(".bloco");
 
   if (atalhos.length && seccoes.length && "IntersectionObserver" in window) {
     var aLer = [];

@@ -123,8 +123,17 @@ p { margin: 0 0 1em; }
 .btn:hover::before,
 .btn:focus-visible::before { transform: scaleY(1); }
 
-.btn-tinta { background: var(--tinta); color: var(--papel); }
-.btn-tinta::before { background: var(--ciano-esc); }
+/* o preto escoa-se de cima para baixo: o inverso do botao de contorno */
+.btn-tinta {
+  background: var(--papel);
+  border-color: var(--tinta);
+  color: var(--papel);
+}
+.btn-tinta::before { background: var(--tinta); transform: scaleY(1); }
+.btn-tinta:hover::before,
+.btn-tinta:focus-visible::before { transform: scaleY(0); }
+.btn-tinta:hover,
+.btn-tinta:focus-visible { color: var(--tinta); }
 
 .btn-linha { border-color: var(--tinta); color: var(--tinta); }
 .btn-linha::before { background: var(--tinta); }

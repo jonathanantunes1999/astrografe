@@ -216,6 +216,39 @@
     }
   }
 
+  var atalhos = document.querySelectorAll(".atalhos a");
+  var seccoes = document.querySelectorAll(".serv");
+
+  if (atalhos.length && seccoes.length && "IntersectionObserver" in window) {
+    var aLer = [];
+
+    var acender = function () {
+      // com duas na faixa, manda a que entrou por ultimo
+      var escolhida = null;
+      aLer.forEach(function (seccao) {
+        if (!escolhida || seccao.getBoundingClientRect().top > escolhida.getBoundingClientRect().top) {
+          escolhida = seccao;
+        }
+      });
+      if (!escolhida) return;
+
+      atalhos.forEach(function (atalho) {
+        atalho.classList.toggle("ativo", atalho.getAttribute("href") === "#" + escolhida.id);
+      });
+    };
+
+    var olho = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        var posicao = aLer.indexOf(entrada.target);
+        if (entrada.isIntersecting && posicao === -1) aLer.push(entrada.target);
+        if (!entrada.isIntersecting && posicao !== -1) aLer.splice(posicao, 1);
+      });
+      acender();
+    }, { rootMargin: "-135px 0px -75% 0px" });
+
+    seccoes.forEach(function (seccao) { olho.observe(seccao); });
+  }
+
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();

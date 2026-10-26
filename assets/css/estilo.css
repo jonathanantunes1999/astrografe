@@ -279,7 +279,8 @@ p { margin: 0 0 1em; }
 }
 .nav > a:hover,
 .nav .tem-menu > a:hover { color: var(--tinta); }
-.nav .ativo { color: var(--tinta); font-weight: 700; }
+.nav > a.ativo,
+.nav .tem-menu > a.ativo { color: var(--tinta); font-weight: 700; }
 
 /* ---------- menu pendente ---------- */
 

@@ -274,7 +274,7 @@ p { margin: 0 0 1em; }
   padding: 0.3em 0;
   border-bottom: 2px solid transparent;
 }
-.nav a:hover { border-color: var(--ciano); }
+.nav a:hover { border-color: var(--tinta); }
 
 /* ---------- menu pendente ---------- */
 
@@ -895,7 +895,7 @@ p { margin: 0 0 1em; }
   background: var(--tinta-2);
 }
 
-.nav a.ativo { border-color: var(--ciano); }
+.nav a.ativo { border-color: var(--tinta); }
 
 /* ---------- formulario ---------- */
 

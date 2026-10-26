@@ -590,20 +590,9 @@ p { margin: 0 0 1em; }
   display: grid;
   gap: 2.5rem;
 }
-/* cada passo leva a cor da chapa que entra nessa ordem na maquina */
+/* aqui o percurso e a preto; a cor das chapas vive na pagina de servicos */
 .passos li { border-top: 3px solid var(--tinta); padding-top: 1.2rem; }
-.passos li:nth-child(1) { border-top-color: var(--ciano); }
-.passos li:nth-child(2) { border-top-color: var(--magenta); }
-.passos li:nth-child(3) { border-top-color: var(--amarelo); }
-
-.passo-n {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 0.9rem;
-  color: var(--tinta-2);
-  letter-spacing: 0.08em;
-}
-.passos h3 { margin: 0.6rem 0 0.5rem; }
+.passos h3 { margin: 0 0 0.5rem; }
 .passos p { color: var(--tinta-2); font-size: 0.95rem; margin: 0; }
 
 /* ---------- cta final ---------- */

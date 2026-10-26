@@ -5,18 +5,30 @@
   var burger = document.getElementById("burger");
 
   if (burger && topo) {
+    var fechar = function () {
+      topo.classList.remove("nav-aberto");
+      document.body.classList.remove("preso");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Abrir menu");
+    };
+
     burger.addEventListener("click", function () {
       var aberto = topo.classList.toggle("nav-aberto");
+      document.body.classList.toggle("preso", aberto);
       burger.setAttribute("aria-expanded", aberto ? "true" : "false");
       burger.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
     });
 
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && topo.classList.contains("nav-aberto")) {
+        fechar();
+        burger.focus();
+      }
+    });
+
     // fechar ao escolher uma entrada do menu
     topo.querySelectorAll(".nav a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        topo.classList.remove("nav-aberto");
-        burger.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", fechar);
     });
   }
 

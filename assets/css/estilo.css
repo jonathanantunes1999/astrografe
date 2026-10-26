@@ -299,7 +299,7 @@ p { margin: 0 0 1em; }
   box-shadow: 0 18px 40px rgba(20, 20, 20, 0.12);
 }
 
-.submenu-faixa { display: flex; height: 3px; }
+.submenu-faixa { display: flex; height: 5px; }
 .submenu-faixa i { flex: 1; transform-origin: left; }
 .submenu-faixa i:nth-child(1) { background: var(--ciano); }
 .submenu-faixa i:nth-child(2) { background: var(--magenta); }

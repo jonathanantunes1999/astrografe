@@ -732,6 +732,94 @@ p { margin: 0 0 1em; }
 .orc { padding: 2.8rem 0 4.5rem; }
 .orc-in { display: grid; gap: 3rem; align-items: start; }
 
+/* ---------- pagina de servicos ---------- */
+
+.atalhos {
+  border-top: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  background: var(--papel);
+}
+.atalhos-in {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.atalhos a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+.atalhos a:hover { color: var(--ciano-esc); }
+.atalhos em {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--tinta-2);
+}
+
+.serv {
+  padding: 4rem 0;
+  scroll-margin-top: 96px;
+}
+.serv-par { background: var(--papel-2); }
+
+.serv-in { display: grid; gap: 2.5rem; align-items: center; }
+
+/* cada servico leva a cor da chapa que lhe corresponde */
+.serv-n {
+  display: inline-block;
+  margin: 0 0 1.3rem;
+  padding-top: 0.9rem;
+  border-top: 3px solid var(--tinta);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+}
+#pre-impressao .serv-n { border-top-color: var(--ciano); }
+#offset .serv-n { border-top-color: var(--magenta); }
+#impressao-digital .serv-n { border-top-color: var(--amarelo); }
+
+.serv-txt h2 { margin-bottom: 0.9rem; }
+
+.serv-img { margin: 0; }
+.serv-img figcaption {
+  font-size: 0.82rem;
+  color: var(--tinta-2);
+  margin-top: 0.6rem;
+}
+
+.lista-marcas {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+}
+.lista-marcas li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.97rem;
+  color: var(--tinta-2);
+}
+.lista-marcas li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 9px;
+  height: 1px;
+  background: var(--tinta-2);
+}
+
+.nav a.ativo { border-color: var(--ciano); }
+
 /* ---------- formulario ---------- */
 
 .form fieldset { border: 0; margin: 0 0 2.4rem; padding: 0; }
@@ -923,6 +1011,9 @@ p { margin: 0 0 1em; }
   .campos { grid-template-columns: repeat(2, 1fr); }
   .campo { grid-column: 1 / -1; }
   .campo-2 { grid-column: span 1; }
+
+  .lista-duas { columns: 2; column-gap: 2rem; }
+  .lista-duas li { break-inside: avoid; }
 }
 
 /* ---------- desktop ---------- */
@@ -968,6 +1059,11 @@ p { margin: 0 0 1em; }
   .pe-in { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; }
 
   .orc-in { grid-template-columns: 1.7fr 1fr; gap: 4rem; }
+
+  .serv { padding: 5rem 0; }
+  .serv-in { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  /* nas seccoes pares a fotografia troca de lado */
+  .serv-par .serv-txt { order: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {

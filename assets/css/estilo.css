@@ -466,16 +466,84 @@ p { margin: 0 0 1em; }
 
 /* ---------- familias de produto ---------- */
 
-.fams { padding: 4.5rem 0; }
-
-.grelha {
-  display: grid;
-  gap: 2.5rem 2rem;
-  margin-top: 3rem;
+.fams {
+  padding: 4.5rem 0;
+  /* as linhas entram de fora, por isso o que sai da secçao nao conta para o scroll */
+  overflow: hidden;
 }
 
-.fam h3 { margin: 1.1rem 0 0.5rem; }
-.fam p { color: var(--tinta-2); font-size: 0.97rem; }
+/* lista em escadinha: entram alternadamente da esquerda e da direita */
+.escada {
+  list-style: none;
+  margin: 2.8rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--linha);
+}
+
+.escada-item {
+  border-bottom: 1px solid var(--linha);
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.vem-esq { transform: translateX(-70px); }
+.vem-dir { transform: translateX(70px); }
+.escada-item.vista { opacity: 1; transform: none; }
+
+.escada-item a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  text-decoration: none;
+  transition: padding-left 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.escada-n {
+  flex: none;
+  width: 2rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--tinta-2);
+}
+
+.escada-t {
+  flex: 1;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5.5vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.escada-seta {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--linha);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-16px) rotate(-45deg);
+  transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
+}
+.escada-seta svg { width: 18px; height: 18px; }
+
+.escada-item a:hover { padding-left: 1.1rem; color: var(--ciano-esc); }
+.escada-item a:hover .escada-seta {
+  opacity: 1;
+  transform: none;
+  background: var(--ciano-esc);
+  border-color: var(--ciano-esc);
+  color: var(--papel);
+}
+
+/* com uma linha em foco, as outras recuam */
+.escada:hover a { opacity: 0.35; }
+.escada:hover a:hover { opacity: 1; }
 
 /* ---------- fabrica ---------- */
 
@@ -1003,7 +1071,6 @@ p { margin: 0 0 1em; }
 @media (min-width: 620px) {
   .nums-in { grid-template-columns: repeat(4, 1fr); }
   .clubes-lista { grid-template-columns: repeat(3, 1fr); }
-  .grelha { grid-template-columns: repeat(2, 1fr); }
   .passos { grid-template-columns: repeat(2, 1fr); }
   .pe-in { grid-template-columns: repeat(2, 1fr); }
   .cta-in { grid-template-columns: 1fr auto; align-items: center; }
@@ -1051,8 +1118,16 @@ p { margin: 0 0 1em; }
   .hero { padding: 5.5rem 0 4.5rem; }
   .hero-in { grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; }
 
-  .grelha { grid-template-columns: repeat(3, 1fr); }
   .passos { grid-template-columns: repeat(4, 1fr); }
+
+  .vem-esq { transform: translateX(-140px); }
+  .vem-dir { transform: translateX(140px); }
+  .escada-item.vista { transform: none; }
+
+  .escada-item a { gap: 1.6rem; padding: 1.5rem 0; }
+  .escada-n { width: 3rem; font-size: 0.8rem; }
+  .escada-seta { width: 56px; height: 56px; }
+  .escada-seta svg { width: 22px; height: 22px; }
 
   .cap-in { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
 
@@ -1069,4 +1144,5 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }
+  .escada-item { opacity: 1; transform: none; }
 }

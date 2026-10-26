@@ -199,6 +199,23 @@
     });
   }
 
+  var escada = document.querySelectorAll(".escada-item");
+
+  if (escada.length) {
+    if ("IntersectionObserver" in window) {
+      // alterna a classe, por isso a entrada repete-se a subir e a descer
+      var vigia = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          entrada.target.classList.toggle("vista", entrada.isIntersecting);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+      escada.forEach(function (linha) { vigia.observe(linha); });
+    } else {
+      escada.forEach(function (linha) { linha.classList.add("vista"); });
+    }
+  }
+
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 })();

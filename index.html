@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/estilo.css?v=21">
+<link rel="stylesheet" href="assets/css/estilo.css?v=23">
 </head>
 <body>
 
@@ -148,49 +148,62 @@
     <h2>O que imprimimos</h2>
     <p class="sub">Seis famílias de produto. Se não encontrar o que precisa, pergunte — quase sempre fazemos.</p>
 
-    <div class="grelha">
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="calendarios.webp"></div>
-        <h3>Calendários</h3>
-        <p>Parede, bolso e secretária. O nosso produto de maior quota nacional.</p>
-        <a class="link" href="orcamento/?familia=calendarios">Pedir orçamento</a>
-      </article>
-
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="cartas.webp"></div>
-        <h3>Cartas e jogos</h3>
-        <p>Baralhos de cartas com acabamento e embalagem próprios.</p>
-        <a class="link" href="orcamento/?familia=cartas-e-jogos">Pedir orçamento</a>
-      </article>
-
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="promocional.webp"></div>
-        <h3>Promocional</h3>
-        <p>Magnéticos, tapetes de rato, bases de secretária, cortiça, lenticular e postais.</p>
-        <a class="link" href="orcamento/?familia=promocional">Pedir orçamento</a>
-      </article>
-
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="editorial.webp"></div>
-        <h3>Papelaria e editorial</h3>
-        <p>Livros, brochuras, catálogos, flyers, desdobráveis, convites, agendas, blocos e cartões.</p>
-        <a class="link" href="orcamento/?familia=papelaria-e-editorial">Pedir orçamento</a>
-      </article>
-
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="embalagem.webp"></div>
-        <h3>Embalagem e PLV</h3>
-        <p>Caixas, sacos, expositores, cartazes e capas, com corte e vinco próprios.</p>
-        <a class="link" href="orcamento/?familia=embalagem-e-plv">Pedir orçamento</a>
-      </article>
-
-      <article class="fam">
-        <div class="ph ph-3x2" data-ficheiro="grande-formato.webp"></div>
-        <h3>Grande formato e etiquetas</h3>
-        <p>Vinil, lonas, roll-ups, duratran, transfer, rótulos e dados variáveis.</p>
-        <a class="link" href="orcamento/?familia=grande-formato-e-etiquetas">Pedir orçamento</a>
-      </article>
-    </div>
+    <ol class="escada">
+      <li class="escada-item vem-esq">
+        <a href="calendarios/">
+          <span class="escada-n">01</span>
+          <span class="escada-t">Calendários</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="escada-item vem-dir">
+        <a href="produtos/#cartas-e-jogos">
+          <span class="escada-n">02</span>
+          <span class="escada-t">Cartas e jogos</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="escada-item vem-esq">
+        <a href="produtos/#promocional">
+          <span class="escada-n">03</span>
+          <span class="escada-t">Promocional</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="escada-item vem-dir">
+        <a href="produtos/#papelaria-e-editorial">
+          <span class="escada-n">04</span>
+          <span class="escada-t">Papelaria e editorial</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="escada-item vem-esq">
+        <a href="produtos/#embalagem-e-plv">
+          <span class="escada-n">05</span>
+          <span class="escada-t">Embalagem e PLV</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+      <li class="escada-item vem-dir">
+        <a href="produtos/#grande-formato-e-etiquetas">
+          <span class="escada-n">06</span>
+          <span class="escada-t">Grande formato e etiquetas</span>
+          <span class="escada-seta" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -330,7 +343,7 @@
   </svg>
 </button>
 
-<script src="assets/js/site.js?v=2"></script>
+<script src="assets/js/site.js?v=3"></script>
 
 <script type="application/ld+json">
 {

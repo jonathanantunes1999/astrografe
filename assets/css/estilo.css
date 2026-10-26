@@ -123,13 +123,17 @@ p { margin: 0 0 1em; }
 .btn:hover::before,
 .btn:focus-visible::before { transform: scaleY(1); }
 
-/* o preto escoa-se de cima para baixo: o inverso do botao de contorno */
+/* o preto sai por cima, no mesmo sentido em que o outro botao enche */
 .btn-tinta {
   background: var(--papel);
   border-color: var(--tinta);
   color: var(--papel);
 }
-.btn-tinta::before { background: var(--tinta); transform: scaleY(1); }
+.btn-tinta::before {
+  background: var(--tinta);
+  transform: scaleY(1);
+  transform-origin: top;
+}
 .btn-tinta:hover::before,
 .btn-tinta:focus-visible::before { transform: scaleY(0); }
 .btn-tinta:hover,

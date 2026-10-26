@@ -266,7 +266,9 @@ p { margin: 0 0 1em; }
 }
 
 .nav { display: none; gap: 1.4rem; }
-.nav a {
+/* so as entradas do menu, nunca o botao nem os links da caixa */
+.nav > a,
+.nav .tem-menu > a {
   font-family: var(--display);
   font-weight: 600;
   font-size: 0.93rem;
@@ -275,7 +277,9 @@ p { margin: 0 0 1em; }
   color: var(--tinta-2);
   transition: color 0.2s;
 }
-.nav a:hover { color: var(--tinta); }
+.nav > a:hover,
+.nav .tem-menu > a:hover { color: var(--tinta); }
+.nav .ativo { color: var(--tinta); font-weight: 700; }
 
 /* ---------- menu pendente ---------- */
 

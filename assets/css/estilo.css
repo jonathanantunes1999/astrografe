@@ -144,8 +144,21 @@ p { margin: 0 0 1em; }
 .btn-linha:hover,
 .btn-linha:focus-visible { color: var(--papel); }
 
-.btn-papel { background: var(--papel); color: var(--tinta); }
-.btn-papel::before { background: var(--amarelo); }
+/* sobre fundo escuro e o papel que sai, pelo mesmo lado */
+.btn-papel {
+  background: var(--tinta);
+  border-color: var(--papel);
+  color: var(--tinta);
+}
+.btn-papel::before {
+  background: var(--papel);
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.btn-papel:hover::before,
+.btn-papel:focus-visible::before { transform: scaleY(0); }
+.btn-papel:hover,
+.btn-papel:focus-visible { color: var(--papel); }
 
 .link {
   font-family: var(--display);

@@ -468,6 +468,9 @@ p { margin: 0 0 1em; }
 
 /* ---------- familias de produto ---------- */
 
+.cabeca { display: grid; gap: 0.8rem; }
+.cabeca .sub { margin-bottom: 0; }
+
 .fams {
   padding: 4.5rem 0;
   /* as linhas entram de fora, por isso o que sai da secçao nao conta para o scroll */
@@ -1125,6 +1128,12 @@ p { margin: 0 0 1em; }
   .vem-esq { transform: translateX(-140px); }
   .vem-dir { transform: translateX(140px); }
   .escada-item.vista { transform: none; }
+
+  .cabeca {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
 
   .escada-item a { gap: 1.6rem; padding: 1.2rem 0; }
   .escada-n { width: 3rem; font-size: 0.8rem; }

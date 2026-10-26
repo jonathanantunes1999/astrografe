@@ -28,21 +28,37 @@
     var fim = document.querySelector(".pe-base");
 
     var marcar = function () {
-      var percurso = document.documentElement.scrollHeight - window.innerHeight;
-      var lido = percurso > 0 ? window.scrollY / percurso : 0;
+      // primeiro le-se tudo, so depois se escreve: a ordem inversa obriga
+      // o browser a recalcular o layout a meio de cada scroll
+      var altura = window.innerHeight;
+      var y = window.scrollY;
+      var percurso = document.documentElement.scrollHeight - altura;
+      var topoDoFim = fim ? fim.getBoundingClientRect().top : null;
+
+      var lido = percurso > 0 ? y / percurso : 0;
       arco.style.strokeDashoffset = volta * (1 - Math.min(lido, 1));
-      subir.classList.toggle("ver", window.scrollY > 600);
+      subir.classList.toggle("ver", y > 600);
 
       // ao chegar ao fim do rodape o botao encosta, em vez de tapar o texto
-      if (fim) {
+      if (topoDoFim !== null) {
         var folga = window.innerWidth >= 960 ? 28 : 16;
-        var invade = window.innerHeight - fim.getBoundingClientRect().top + 12;
-        subir.style.bottom = Math.max(folga, invade) + "px";
+        subir.style.bottom = Math.max(folga, altura - topoDoFim + 12) + "px";
       }
     };
 
-    window.addEventListener("scroll", marcar, { passive: true });
-    window.addEventListener("resize", marcar);
+    // no maximo uma vez por fotograma
+    var pedido = false;
+    var aoRolar = function () {
+      if (pedido) return;
+      pedido = true;
+      requestAnimationFrame(function () {
+        pedido = false;
+        marcar();
+      });
+    };
+
+    window.addEventListener("scroll", aoRolar, { passive: true });
+    window.addEventListener("resize", aoRolar);
     marcar();
 
     subir.addEventListener("click", function () {

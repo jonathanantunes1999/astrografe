@@ -272,9 +272,10 @@ p { margin: 0 0 1em; }
   font-size: 0.93rem;
   text-decoration: none;
   padding: 0.3em 0;
-  border-bottom: 2px solid transparent;
+  color: var(--tinta-2);
+  transition: color 0.2s;
 }
-.nav a:hover { border-color: var(--tinta); }
+.nav a:hover { color: var(--tinta); }
 
 /* ---------- menu pendente ---------- */
 
@@ -895,7 +896,7 @@ p { margin: 0 0 1em; }
   background: var(--tinta-2);
 }
 
-.nav a.ativo { border-color: var(--tinta); }
+.nav a.ativo { color: var(--tinta); font-weight: 700; }
 
 /* ---------- formulario ---------- */
 

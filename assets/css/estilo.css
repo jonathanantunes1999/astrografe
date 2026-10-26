@@ -1078,6 +1078,9 @@ p { margin: 0 0 1em; }
   .campo { grid-column: 1 / -1; }
   .campo-2 { grid-column: span 1; }
 
+  /* ja cabem todos: centra-se. no telemovel ficam a esquerda e arrastam-se */
+  .atalhos-in { justify-content: center; gap: 2rem; }
+
   .lista-duas { columns: 2; column-gap: 2rem; }
   .lista-duas li { break-inside: avoid; }
 }

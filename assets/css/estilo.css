@@ -794,7 +794,7 @@ p { margin: 0 0 1em; }
 /* ---------- pagina de servicos ---------- */
 
 /* o texto de abertura precisa de ar antes da barra */
-.pag-topo + .atalhos { margin-top: 2.8rem; }
+.pag-topo + .atalhos { margin-top: 4rem; }
 
 .atalhos {
   position: sticky;

@@ -15,6 +15,8 @@
   --max: 1200px;
   --gut: 16px;
   --r: 2px;
+  /* altura do cabecalho fixo, barra de cor incluida */
+  --topo-alt: 76px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -792,17 +794,24 @@ p { margin: 0 0 1em; }
 /* ---------- pagina de servicos ---------- */
 
 .atalhos {
+  position: sticky;
+  top: var(--topo-alt);
+  z-index: 30;
   border-top: 1px solid var(--linha);
   border-bottom: 1px solid var(--linha);
   background: var(--papel);
 }
 .atalhos-in {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem 1.8rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  gap: 1.6rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  /* no telemovel os quatro arrastam-se de lado em vez de partirem a barra */
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.atalhos-in::-webkit-scrollbar { display: none; }
+.atalhos a { white-space: nowrap; }
 .atalhos a {
   display: flex;
   align-items: baseline;
@@ -821,7 +830,8 @@ p { margin: 0 0 1em; }
 
 .serv {
   padding: 4rem 0;
-  scroll-margin-top: 96px;
+  /* passa por baixo do cabecalho e da barra de atalhos */
+  scroll-margin-top: calc(var(--topo-alt) + 56px);
 }
 .serv-par { background: var(--papel-2); }
 

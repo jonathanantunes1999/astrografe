@@ -832,12 +832,8 @@ p { margin: 0 0 1em; }
   color: var(--tinta-2);
 }
 
-/* a secçao em que se vai a ler acende, com a cor da sua chapa */
-.atalhos a:nth-child(1) { --chapa: var(--ciano); }
-.atalhos a:nth-child(2) { --chapa: var(--magenta); }
-.atalhos a:nth-child(3) { --chapa: var(--amarelo); }
-.atalhos a:nth-child(4) { --chapa: var(--tinta); }
-.atalhos a.ativo { color: var(--tinta); border-bottom-color: var(--chapa); }
+/* a secçao em que se vai a ler acende; a cor fica para os traços das seccoes */
+.atalhos a.ativo { color: var(--tinta); border-bottom-color: var(--tinta); }
 
 .serv {
   padding: 4rem 0;

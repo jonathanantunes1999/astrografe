@@ -33,6 +33,8 @@ body {
 
 img { max-width: 100%; display: block; }
 
+figure { margin: 0; }
+
 a { color: inherit; }
 
 h1, h2, h3 {
@@ -1125,6 +1127,56 @@ body.preso { overflow: hidden; }
   align-items: center;
   gap: 1rem 1.6rem;
   margin: 2rem 0 0;
+}
+
+/* ---------- so no telemovel: a pagina como uma folha ---------- */
+
+@media (max-width: 619px) {
+  /* as fotografias sangram ate ao corte; o texto e que respeita a margem */
+  .hero-img .ph,
+  .bloco-img .ph,
+  .cap-img .ph {
+    margin-left: calc(-1 * var(--gut));
+    margin-right: calc(-1 * var(--gut));
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* marcas de corte nos cantos do bloco de abertura */
+  .hero-txt {
+    position: relative;
+    padding: 1.4rem 1.1rem 1.6rem;
+    margin-left: -0.3rem;
+    margin-right: -0.3rem;
+    --canto: linear-gradient(var(--tinta-2), var(--tinta-2));
+    background:
+      var(--canto) left 0 top 0 / 1px 13px no-repeat,
+      var(--canto) left 0 top 0 / 13px 1px no-repeat,
+      var(--canto) right 0 top 0 / 1px 13px no-repeat,
+      var(--canto) right 0 top 0 / 13px 1px no-repeat,
+      var(--canto) left 0 bottom 0 / 1px 13px no-repeat,
+      var(--canto) left 0 bottom 0 / 13px 1px no-repeat,
+      var(--canto) right 0 bottom 0 / 1px 13px no-repeat,
+      var(--canto) right 0 bottom 0 / 13px 1px no-repeat;
+  }
+  .hero-nota { margin-bottom: 0; }
+
+  /* marca de dobra a separar as seccoes */
+  .clubes::before,
+  .fams::before,
+  .cap::before,
+  .proc::before,
+  .bloco + .bloco::before {
+    content: "";
+    display: block;
+    height: 7px;
+    margin: 0 0 2.6rem;
+    background:
+      repeating-linear-gradient(to right, var(--linha) 0 7px, transparent 7px 14px) left center / 100% 1px no-repeat,
+      radial-gradient(circle, var(--linha) 2.5px, transparent 2.6px) center center / 14px 7px no-repeat;
+  }
+  .clubes, .fams, .cap, .proc { padding-top: 2.8rem; }
+  .bloco + .bloco { padding-top: 2.8rem; }
 }
 
 /* ---------- tablet ---------- */

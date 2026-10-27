@@ -5,18 +5,27 @@
   var burger = document.getElementById("burger");
 
   if (burger && topo) {
+    // com o menu aberto, o resto da pagina sai do alcance do teclado
+    var porTras = [document.querySelector(".salta"), document.getElementById("conteudo"), document.querySelector(".pe"), document.getElementById("subir")];
+
+    var trancar = function (aberto) {
+      document.body.classList.toggle("preso", aberto);
+      porTras.forEach(function (parte) {
+        if (!parte) return;
+        if (aberto) parte.setAttribute("inert", "");
+        else parte.removeAttribute("inert");
+      });
+      burger.setAttribute("aria-expanded", aberto ? "true" : "false");
+      burger.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+    };
+
     var fechar = function () {
       topo.classList.remove("nav-aberto");
-      document.body.classList.remove("preso");
-      burger.setAttribute("aria-expanded", "false");
-      burger.setAttribute("aria-label", "Abrir menu");
+      trancar(false);
     };
 
     burger.addEventListener("click", function () {
-      var aberto = topo.classList.toggle("nav-aberto");
-      document.body.classList.toggle("preso", aberto);
-      burger.setAttribute("aria-expanded", aberto ? "true" : "false");
-      burger.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+      trancar(topo.classList.toggle("nav-aberto"));
     });
 
     document.addEventListener("keydown", function (e) {
@@ -171,7 +180,7 @@
 
       var maus = porPreencher();
       if (maus.length) {
-        aviso.className = "form-aviso erro";
+        aviso.className = "form-aviso falhou";
         aviso.textContent = maus.length === 1
           ? "Falta preencher um campo. Está assinalado acima."
           : "Faltam " + maus.length + " campos. Estão assinalados acima.";
@@ -215,7 +224,7 @@
           aviso.textContent = "Pedido enviado. Respondemos em 24 horas úteis.";
         })
         .catch(function () {
-          aviso.className = "form-aviso erro";
+          aviso.className = "form-aviso falhou";
           aviso.innerHTML =
             'Não foi possível enviar o pedido. Tente outra vez ou ligue para ' +
             '<a href="tel:+351219822088">219 822 088</a>.';

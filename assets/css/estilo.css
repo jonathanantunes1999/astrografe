@@ -307,6 +307,7 @@ p { margin: 0 0 1em; }
 
 .submenu-caixa a {
   display: block;
+  text-decoration: none;
   padding: 0.7rem 1.1rem;
   border: 0;
   border-bottom: 1px solid var(--linha);

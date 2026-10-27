@@ -1,0 +1,59 @@
+# Astrografe — regras de servidor
+# Apache. Se o alojamento for Nginx ou outro, estas regras tem de ser
+# reescritas na configuracao desse servidor.
+
+# ---------- enderecos antigos ----------
+# O site anterior era WordPress. Estes redirecionamentos evitam que
+# ligacoes noutros sites e favoritos antigos acabem em pagina de erro.
+RewriteEngine On
+
+Redirect 301 /quem-somos/ /sobre/
+Redirect 301 /contatos/ /contactos/
+Redirect 301 /produtos/2026-2/ /calendarios/
+Redirect 301 /produtos/ruptura-de-stock-2025/ /calendarios/
+
+Redirect 301 /servicos/pre-impressao/ /servicos/#pre-impressao
+Redirect 301 /servicos/offset/ /servicos/#offset
+Redirect 301 /servicos/impressao-digital/ /servicos/#impressao-digital
+Redirect 301 /servicos/acabamento/ /servicos/#acabamentos
+
+Redirect 301 /licenciamentos/sport-lisboa-benfica/ /licenciamentos/#benfica
+Redirect 301 /licenciamentos/sporting-clube-de-portugal/ /licenciamentos/#sporting
+Redirect 301 /licenciamentos/futebol-clube-do-porto/ /licenciamentos/#porto
+
+# O site deixa de ter WordPress: quem procurar a administracao vai para a home.
+RedirectMatch 301 ^/wp-login\.php$ /
+RedirectMatch 301 ^/wp-admin(/.*)?$ /
+RedirectMatch 301 ^/wp-content(/.*)?$ /
+
+# ---------- pagina de erro ----------
+ErrorDocument 404 /404.html
+
+# ---------- compressao ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------- validade em cache ----------
+# O CSS e o JS sao pedidos com ?v=numero, por isso podem ficar muito tempo
+# guardados: quando mudarem, o numero muda e o browser vai buscar os novos.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ---------- seguranca basica ----------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+Options -Indexes

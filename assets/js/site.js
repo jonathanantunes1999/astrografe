@@ -88,11 +88,11 @@
     });
   }
 
-  var form = document.getElementById("form-orcamento");
-
-  if (form) {
-    var aviso = document.getElementById("form-aviso");
+  // qualquer formulario marcado com data-envio usa esta logica
+  document.querySelectorAll("form[data-envio]").forEach(function (form) {
+    var aviso = form.querySelector(".form-aviso");
     var botao = form.querySelector('button[type="submit"]');
+    var textoBotao = botao.textContent;
     var familia = form.querySelector("#familia");
 
     // a familia pode vir escolhida da pagina de produtos: orcamento/?familia=calendarios
@@ -221,7 +221,7 @@
           if (!dados.success) throw new Error(dados.message);
           form.reset();
           aviso.className = "form-aviso ok";
-          aviso.textContent = "Pedido enviado. Respondemos em 24 horas úteis.";
+          aviso.textContent = form.dataset.envio || "Mensagem enviada. Respondemos em 24 horas úteis.";
         })
         .catch(function () {
           aviso.className = "form-aviso falhou";
@@ -231,10 +231,10 @@
         })
         .then(function () {
           botao.disabled = false;
-          botao.textContent = "Enviar pedido";
+          botao.textContent = textoBotao;
         });
     });
-  }
+  });
 
   var escada = document.querySelectorAll(".escada-item");
 
@@ -284,6 +284,20 @@
     }, { rootMargin: "-135px 0px -75% 0px" });
 
     seccoes.forEach(function (seccao) { olho.observe(seccao); });
+  }
+
+  var mapa = document.getElementById("mapa");
+
+  if (mapa) {
+    mapa.querySelector(".mapa-abrir").addEventListener("click", function () {
+      var janela = document.createElement("iframe");
+      janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(mapa.dataset.morada) + "&output=embed";
+      janela.title = "Mapa com a morada da Astrografe";
+      janela.loading = "lazy";
+      janela.referrerPolicy = "no-referrer-when-downgrade";
+      mapa.innerHTML = "";
+      mapa.appendChild(janela);
+    });
   }
 
   var ano = document.getElementById("ano");

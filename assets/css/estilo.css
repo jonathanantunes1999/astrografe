@@ -1379,6 +1379,14 @@ body.preso { overflow: hidden; }
   .clube-cartoes { grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 }
 
+/* ---------- paginas legais ---------- */
+
+.legal { padding: 2.6rem 0 4.5rem; }
+.legal-in > * { max-width: 44rem; }
+.legal h2 { font-size: 1.15rem; margin: 2.2rem 0 0.7rem; }
+.legal p { color: var(--tinta-2); }
+.legal .cartao-nota { color: var(--tinta); margin-bottom: 0.5rem; }
+
 /* sem JavaScript o menu fica sempre aberto por baixo da marca */
 html:not(.js) .topo-in { flex-wrap: wrap; align-content: flex-start; min-height: 0; padding-block: 1rem 0.7rem; }
 html:not(.js) .burger { display: none; }

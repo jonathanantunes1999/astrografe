@@ -1348,6 +1348,37 @@ body.preso { overflow: hidden; }
   .bloco-par .bloco-txt { order: 2; }
 }
 
+/* ---------- pagina de licenciamentos ---------- */
+
+.clubes-pag { padding: 3.4rem 0 1rem; }
+
+.clube-cartoes {
+  list-style: none;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  display: grid;
+  gap: 1.2rem;
+}
+.clube-cartao {
+  padding: 1.8rem 1.6rem;
+  background: var(--papel-2);
+  border: 1px solid var(--linha);
+  border-radius: var(--r);
+}
+.clube-cartao img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1.1rem;
+}
+.clube-cartao h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.clube-cartao p { font-size: 0.93rem; color: var(--tinta-2); }
+.clube-cartao .clube-pe { margin: 1.2rem 0 0; }
+
+@media (min-width: 620px) {
+  .clube-cartoes { grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+}
+
 /* sem JavaScript o menu fica sempre aberto por baixo da marca */
 html:not(.js) .topo-in { flex-wrap: wrap; align-content: flex-start; min-height: 0; padding-block: 1rem 0.7rem; }
 html:not(.js) .burger { display: none; }

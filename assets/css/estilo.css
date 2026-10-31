@@ -1,3 +1,19 @@
+/* Tipos de letra servidos pelo próprio site */
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo.woff2") format("woff2");
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/plex-sans.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --papel: #faf8f4;
   --papel-2: #f2eee7;
@@ -646,6 +662,7 @@ p { margin: 0 0 1em; }
   padding: 0.25em 0;
 }
 .pe-col a:hover { color: var(--tinta); }
+.pe-marca p a { padding: 0.65em 0; }
 .pe-col h2 { margin-bottom: 0.9rem; }
 
 .pe-marca .marca-nome { display: block; margin-bottom: 1rem; font-size: 1.15rem; }

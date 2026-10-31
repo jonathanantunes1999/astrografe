@@ -662,12 +662,11 @@ p { margin: 0 0 1em; }
   padding: 0.25em 0;
 }
 .pe-col a:hover { color: var(--tinta); }
-.pe-marca p a { padding: 0.65em 0; }
 .pe-col h2 { margin-bottom: 0.9rem; }
 
 .pe-marca .marca-nome { display: block; margin-bottom: 1rem; font-size: 1.15rem; }
 .pe-marca p { color: var(--tinta-2); }
-.pe-marca p a { display: inline; }
+.pe-marca p a { display: block; padding: 0.4em 0; }
 
 .pe-base {
   display: flex;
@@ -949,6 +948,7 @@ body.preso { overflow: hidden; }
   font-size: 0.97rem;
   color: var(--tinta-2);
 }
+.lista-marcas strong { color: var(--tinta); font-weight: 600; }
 .lista-marcas li::before {
   content: "";
   position: absolute;

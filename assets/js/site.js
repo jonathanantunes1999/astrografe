@@ -300,9 +300,10 @@
   }
 
   var mapa = document.getElementById("mapa");
+  var carregarMapa = null;
 
   if (mapa) {
-    var carregarMapa = function () {
+    carregarMapa = function () {
       var janela = document.createElement("iframe");
       janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(mapa.dataset.morada) + "&output=embed";
       janela.title = "Mapa com a morada da Astrografe";
@@ -313,35 +314,39 @@
     };
 
     mapa.querySelector(".mapa-abrir").addEventListener("click", carregarMapa);
+  }
 
-    var escolha = lerEscolha();
+  var escolha = lerEscolha();
 
-    if (escolha === "sim") {
-      carregarMapa();
-    } else if (escolha !== "nao") {
-      var aviso = document.createElement("section");
-      aviso.className = "consent";
-      aviso.setAttribute("role", "region");
-      aviso.setAttribute("aria-label", "Cookies do mapa");
-      aviso.innerHTML =
-        "<p><strong>O mapa é da Google.</strong> Se aceitar, o mapa carrega logo e a Google pode guardar cookies no seu equipamento. " +
-        "Veja a <a href=\"../cookies/\">política de cookies</a>.</p>" +
-        "<div class=\"consent-btns\">" +
-        "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"nao\">Recusar</button>" +
-        "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"sim\">Aceitar</button>" +
-        "</div>";
+  if (mapa && escolha === "sim") carregarMapa();
 
-      aviso.addEventListener("click", function (e) {
-        var botao = e.target.closest("[data-escolha]");
-        if (!botao) return;
-        var valor = botao.getAttribute("data-escolha");
-        guardarEscolha(valor);
-        aviso.remove();
-        if (valor === "sim") carregarMapa();
-      });
+  /* o aviso aparece na pagina inicial e onde o mapa existe */
+  var pedeEscolha = document.body.hasAttribute("data-inicio") || mapa;
 
-      document.body.appendChild(aviso);
-    }
+  if (pedeEscolha && escolha !== "sim" && escolha !== "nao") {
+    var raiz = document.querySelector('script[src*="site.js"]').getAttribute("src").replace(/assets\/js\/site\.js.*$/, "");
+    var aviso = document.createElement("section");
+    aviso.className = "consent";
+    aviso.setAttribute("role", "region");
+    aviso.setAttribute("aria-label", "Cookies do mapa");
+    aviso.innerHTML =
+      "<p><strong>O mapa é da Google.</strong> Se aceitar, o mapa carrega logo e a Google pode guardar cookies no seu equipamento. " +
+      "Veja a <a href=\"" + raiz + "cookies/\">política de cookies</a>.</p>" +
+      "<div class=\"consent-btns\">" +
+      "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"nao\">Recusar</button>" +
+      "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"sim\">Aceitar</button>" +
+      "</div>";
+
+    aviso.addEventListener("click", function (e) {
+      var botao = e.target.closest("[data-escolha]");
+      if (!botao) return;
+      var valor = botao.getAttribute("data-escolha");
+      guardarEscolha(valor);
+      aviso.remove();
+      if (valor === "sim" && carregarMapa) carregarMapa();
+    });
+
+    document.body.appendChild(aviso);
   }
 
   /* na politica de cookies: voltar a decidir */

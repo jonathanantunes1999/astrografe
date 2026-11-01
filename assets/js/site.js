@@ -330,12 +330,12 @@
     aviso.setAttribute("role", "region");
     aviso.setAttribute("aria-label", "Cookies do mapa");
     aviso.innerHTML =
-      "<p><strong>O mapa é da Google.</strong> Se aceitar, o mapa carrega logo e a Google pode guardar cookies no seu equipamento. " +
+      "<div class=\"consent-in\"><p><strong>O mapa é da Google.</strong> Se aceitar, o mapa carrega logo e a Google pode guardar cookies no seu equipamento. " +
       "Veja a <a href=\"" + raiz + "cookies/\">política de cookies</a>.</p>" +
       "<div class=\"consent-btns\">" +
       "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"nao\">Recusar</button>" +
       "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"sim\">Aceitar</button>" +
-      "</div>";
+      "</div></div>";
 
     aviso.addEventListener("click", function (e) {
       var botao = e.target.closest("[data-escolha]");

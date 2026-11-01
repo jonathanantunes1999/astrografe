@@ -1233,22 +1233,27 @@ body.preso { overflow: hidden; }
     border-right: 0;
   }
 
-  /* marcas de corte nos cantos do bloco de abertura */
+  /* miras de corte: duas linhas soltas por canto, a 3 mm do corte e sem se tocarem */
   .hero-txt {
     position: relative;
-    padding: 1.4rem 1.1rem 1.6rem;
-    margin-left: -0.3rem;
-    margin-right: -0.3rem;
-    --canto: linear-gradient(var(--tinta-2), var(--tinta-2));
+    padding: 1.4rem 0.6rem 1.6rem;
+    margin: 1.5rem 0.2rem;
+  }
+  .hero-txt::before {
+    content: "";
+    position: absolute;
+    inset: -19px;
+    pointer-events: none;
+    --m: linear-gradient(var(--tinta-2), var(--tinta-2));
     background:
-      var(--canto) left 0 top 0 / 1px 13px no-repeat,
-      var(--canto) left 0 top 0 / 13px 1px no-repeat,
-      var(--canto) right 0 top 0 / 1px 13px no-repeat,
-      var(--canto) right 0 top 0 / 13px 1px no-repeat,
-      var(--canto) left 0 bottom 0 / 1px 13px no-repeat,
-      var(--canto) left 0 bottom 0 / 13px 1px no-repeat,
-      var(--canto) right 0 bottom 0 / 1px 13px no-repeat,
-      var(--canto) right 0 bottom 0 / 13px 1px no-repeat;
+      var(--m) left 0 top 19px / 10px 1px no-repeat,
+      var(--m) left 19px top 0 / 1px 10px no-repeat,
+      var(--m) right 0 top 19px / 10px 1px no-repeat,
+      var(--m) right 19px top 0 / 1px 10px no-repeat,
+      var(--m) left 0 bottom 19px / 10px 1px no-repeat,
+      var(--m) left 19px bottom 0 / 1px 10px no-repeat,
+      var(--m) right 0 bottom 19px / 10px 1px no-repeat,
+      var(--m) right 19px bottom 0 / 1px 10px no-repeat;
   }
   .hero-nota { margin-bottom: 0; }
 

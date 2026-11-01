@@ -286,10 +286,23 @@
     seccoes.forEach(function (seccao) { olho.observe(seccao); });
   }
 
+  /* escolha sobre o mapa da Google, guardada so neste navegador */
+  var CHAVE = "astrografe-mapa";
+
+  function lerEscolha() {
+    try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
+  }
+  function guardarEscolha(valor) {
+    try { localStorage.setItem(CHAVE, valor); } catch (e) {}
+  }
+  function apagarEscolha() {
+    try { localStorage.removeItem(CHAVE); } catch (e) {}
+  }
+
   var mapa = document.getElementById("mapa");
 
   if (mapa) {
-    mapa.querySelector(".mapa-abrir").addEventListener("click", function () {
+    var carregarMapa = function () {
       var janela = document.createElement("iframe");
       janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(mapa.dataset.morada) + "&output=embed";
       janela.title = "Mapa com a morada da Astrografe";
@@ -297,6 +310,48 @@
       janela.referrerPolicy = "no-referrer-when-downgrade";
       mapa.innerHTML = "";
       mapa.appendChild(janela);
+    };
+
+    mapa.querySelector(".mapa-abrir").addEventListener("click", carregarMapa);
+
+    var escolha = lerEscolha();
+
+    if (escolha === "sim") {
+      carregarMapa();
+    } else if (escolha !== "nao") {
+      var aviso = document.createElement("section");
+      aviso.className = "consent";
+      aviso.setAttribute("role", "region");
+      aviso.setAttribute("aria-label", "Cookies do mapa");
+      aviso.innerHTML =
+        "<p><strong>O mapa é da Google.</strong> Se aceitar, o mapa carrega logo e a Google pode guardar cookies no seu equipamento. " +
+        "Veja a <a href=\"../cookies/\">política de cookies</a>.</p>" +
+        "<div class=\"consent-btns\">" +
+        "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"nao\">Recusar</button>" +
+        "<button class=\"btn btn-linha\" type=\"button\" data-escolha=\"sim\">Aceitar</button>" +
+        "</div>";
+
+      aviso.addEventListener("click", function (e) {
+        var botao = e.target.closest("[data-escolha]");
+        if (!botao) return;
+        var valor = botao.getAttribute("data-escolha");
+        guardarEscolha(valor);
+        aviso.remove();
+        if (valor === "sim") carregarMapa();
+      });
+
+      document.body.appendChild(aviso);
+    }
+  }
+
+  /* na politica de cookies: voltar a decidir */
+  var mudar = document.querySelector("[data-mudar-escolha]");
+
+  if (mudar) {
+    mudar.addEventListener("click", function () {
+      apagarEscolha();
+      var estado = document.querySelector("[data-escolha-estado]");
+      if (estado) estado.textContent = "Escolha apagada. Voltamos a perguntar na página de contactos.";
     });
   }
 

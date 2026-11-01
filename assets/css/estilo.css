@@ -1392,6 +1392,26 @@ body.preso { overflow: hidden; }
 .legal p { color: var(--tinta-2); }
 .legal .cartao-nota { color: var(--tinta); margin-bottom: 0.5rem; }
 
+/* ---------- escolha sobre o mapa ---------- */
+
+.consent {
+  position: fixed;
+  left: var(--gut);
+  right: var(--gut);
+  bottom: var(--gut);
+  z-index: 60;
+  max-width: 34rem;
+  padding: 1.2rem 1.3rem 1.3rem;
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  box-shadow: 0 18px 40px rgba(20, 20, 20, 0.18);
+}
+.consent p { margin: 0; font-size: 0.93rem; color: var(--tinta-2); }
+.consent strong { color: var(--tinta); }
+.consent a { color: var(--tinta); }
+.consent-btns { display: flex; gap: 0.8rem; margin-top: 1rem; }
+.consent-btns .btn { flex: 1; padding-left: 1rem; padding-right: 1rem; background: transparent; cursor: pointer; }
+
 /* sem JavaScript o menu fica sempre aberto por baixo da marca */
 html:not(.js) .topo-in { flex-wrap: wrap; align-content: flex-start; min-height: 0; padding-block: 1rem 0.7rem; }
 html:not(.js) .burger { display: none; }

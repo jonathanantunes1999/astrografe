@@ -307,10 +307,27 @@
       var janela = document.createElement("iframe");
       janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(mapa.dataset.morada) + "&output=embed";
       janela.title = "Mapa com a morada da Astrografe";
-      janela.loading = "lazy";
       janela.referrerPolicy = "no-referrer-when-downgrade";
+
+      var espera = document.createElement("div");
+      espera.className = "mapa-espera";
+      espera.setAttribute("role", "status");
+      espera.innerHTML = '<span class="mapa-alvo mapa-roda" aria-hidden="true"></span><strong>A carregar o mapa…</strong>';
+
       mapa.innerHTML = "";
+      mapa.appendChild(espera);
       mapa.appendChild(janela);
+
+      var demora = setTimeout(function () {
+        espera.querySelector("strong").textContent = "O mapa está a demorar. Pode abri-lo no Google Maps, ao lado.";
+        espera.classList.add("parada");
+      }, 10000);
+
+      janela.addEventListener("load", function () {
+        clearTimeout(demora);
+        janela.classList.add("pronto");
+        espera.remove();
+      });
     };
 
     mapa.querySelector(".mapa-abrir").addEventListener("click", carregarMapa);

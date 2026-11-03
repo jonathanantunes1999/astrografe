@@ -1014,7 +1014,8 @@ body.preso { overflow: hidden; }
   font-family: var(--display);
   font-size: 0.95rem;
 }
-.mapa-roda { animation: roda 1.6s linear infinite; }
+.mapa-espera .marca-selo { width: 40px; height: 40px; }
+.mapa-roda { animation: roda 1.8s linear infinite; }
 .mapa-espera.parada .mapa-roda { animation: none; }
 @keyframes roda { to { transform: rotate(360deg); } }
 

@@ -314,7 +314,7 @@
       var espera = document.createElement("div");
       espera.className = "mapa-espera";
       espera.setAttribute("role", "status");
-      espera.innerHTML = '<span class="mapa-alvo mapa-roda" aria-hidden="true"></span><strong>A carregar o mapa…</strong>';
+      espera.innerHTML = '<span class="marca-selo mapa-roda" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>A carregar o mapa…</strong>';
 
       mapa.innerHTML = "";
       mapa.appendChild(espera);

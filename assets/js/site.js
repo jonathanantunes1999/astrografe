@@ -305,7 +305,9 @@
   if (mapa) {
     carregarMapa = function () {
       var janela = document.createElement("iframe");
-      janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(mapa.dataset.morada) + "&output=embed";
+      /* vista de satelite, bem aproximada; com coordenadas o Google mostra so o alfinete */
+      var local = mapa.dataset.coordenadas || mapa.dataset.morada;
+      janela.src = "https://www.google.com/maps?q=" + encodeURIComponent(local) + "&t=k&z=18&hl=pt-PT&output=embed";
       janela.title = "Mapa com a morada da Astrografe";
       janela.referrerPolicy = "no-referrer-when-downgrade";
 

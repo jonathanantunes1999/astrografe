@@ -1,4 +1,4 @@
-# Astrografe — regras de servidor
+# Astrografe: regras de servidor
 # Apache. Se o alojamento for Nginx ou outro, estas regras tem de ser
 # reescritas na configuracao desse servidor.
 
@@ -50,10 +50,20 @@ ErrorDocument 404 /404.html
   ExpiresByType text/html "access plus 1 hour"
 </IfModule>
 
-# ---------- seguranca basica ----------
+# ---------- seguranca ----------
+# A politica de conteudos (CSP) so deixa carregar o que o site usa:
+# ficheiros proprios, o mapa da Google e o envio dos formularios.
+# O hash do script em linha (o que marca a pagina como "js") muda se esse
+# script mudar. Para o recalcular: sha256 em base64 do texto entre <script> e </script>.
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; frame-src https://www.google.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
+
+  # Ligar so depois de confirmar que o site abre sempre em https no dominio final.
+  # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
 Options -Indexes

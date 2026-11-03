@@ -422,12 +422,6 @@ p { margin: 0 0 1em; }
 }
 
 .hero-img { margin: 0; }
-.hero-img figcaption {
-  font-size: 0.82rem;
-  color: var(--tinta-2);
-  margin-top: 0.6rem;
-}
-
 /* ---------- numeros ---------- */
 
 .nums {
@@ -930,12 +924,6 @@ body.preso { overflow: hidden; }
 .bloco-txt h2 { margin-bottom: 0.9rem; }
 
 .bloco-img { margin: 0; }
-.bloco-img figcaption {
-  font-size: 0.82rem;
-  color: var(--tinta-2);
-  margin-top: 0.6rem;
-}
-
 .lista-marcas {
   list-style: none;
   margin: 1.6rem 0 0;
